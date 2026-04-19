@@ -8,3 +8,6 @@ https://drive.google.com/drive/folders/1WMQxGKzSkjTsvd1kqCJlUJvSOEB-b1rP?usp=sha
 
 # After Mid Video
 https://drive.google.com/file/d/1zWeT6YBVjz_RxQQnYC4z-3iseS2tLYSD/view?usp=sharing
+
+# Before Mid Video
+https://drive.google.com/file/d/1fQ5YJGh758HDNWgZxVK9LHLBiDo0UQT3/view?usp=sharing
