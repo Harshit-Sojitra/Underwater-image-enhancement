@@ -1,0 +1,26 @@
+Dataset name: UFO-120
+Nature: for paired training of underwater SESR (simulatenous enhancement and super-resolution) models
+Source: http://irvlab.cs.umn.edu/resources/ufo-120-dataset
+Paper: https://arxiv.org/pdf/2002.01155.pdf
+
+Statistics
+---------------------------------------------------------------------------
+  * train_val/ contains 1500 paired samples for training/validation
+  * TEST/ contains 120 test samples for benchmark evaluation (do not alter)
+
+Paired data for each set:    
+  * hr/ contains high-resolution ground truth images: Y
+  * mask/ contains ground truth saliency maps: S
+  * lrd/ contains low-resolution distorted images: X  
+
+Possible Usage:    
+  * Train SESR models: {X} → {Y}
+  * Train image enhancement models: {X} → {Y} (downscaled)
+  * Train image super-resolution models: {Y} (downscaled) → {Y}
+  * Train saliency prediction models: {Y} (downscaled) → {S}
+
+The Y images are of size 640 x 480. The X and S are of size 320 x 240. 
+Hence, the default configuration is for training 2x models. 
+   (rescale X and S for other configurations, e.g., 3x/4x) 
+------------------------------------------------------------------------
+
