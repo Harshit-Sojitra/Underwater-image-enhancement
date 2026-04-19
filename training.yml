@@ -1,0 +1,74 @@
+# ###############
+# ## 
+# ####
+# # 0 2|5 6
+# GPU: [0]
+
+# VERBOSE: True
+
+# MODEL:
+#   SESSION: 'model_C'
+#   MODE: 'TEBCF' # 'CTM' or 'TEBCF'
+
+# # TEBCF algorithm parameters
+# TEBCF:
+#   TOLERANCE: 0.1 # Parameter for CCI calculation
+
+# # Optimization arguments.
+# OPTIM:
+#   BATCH_SIZE: 1       # Safe for Colab T4 (16GB VRAM)
+#   NUM_EPOCHS: 50       # Fine-tuning usually needs more epochs
+#   # NEPOCH_DECAY: [10]
+#   LR_INITIAL: 1e-4
+#   LR_MIN: 1e-6
+#   # BETA1: 0.9
+
+# TRAINING:
+#   VAL_AFTER_EVERY: 1
+#   RESUME: True
+#   TRAIN_PS: 256
+#   VAL_PS: 256
+#   TRAIN_DIR: './dataset/my_custom_dataset' # path to training data
+#   VAL_DIR: './dataset/validation'     # path to validation data
+#   SAVE_DIR: './checkpoints'
+#   # SAVE_IMAGES: False
+
+
+
+
+###############
+## Fine-tuning CTM on UFO-120 dataset
+####
+
+GPU: [0]
+
+VERBOSE: True
+
+MODEL:
+  SESSION: 'model_UFO'            # Separate session — keeps CycleGAN weights safe
+  MODE: 'CTM'                     # Must be 'CTM' for the CTM model training
+
+# Optimization arguments.
+OPTIM:
+  BATCH_SIZE: 4                   # UFO images are 256x256, can fit more per batch
+  NUM_EPOCHS: 30                  # Fine-tuning needs fewer epochs than training from scratch
+  LR_INITIAL: 2e-5                # Lower LR than from-scratch (1e-4) to avoid overwriting learned features
+  LR_MIN: 1e-7                    # Minimum LR at end of cosine annealing
+
+TRAINING:
+  VAL_AFTER_EVERY: 1              # Validate every epoch and save best
+  RESUME: True                    # START from CycleGAN pre-trained weights (fine-tuning!)
+  TRAIN_PS: 256                   # Patch size must match model input (256x256)
+  VAL_PS: 256                     # Validation patch size
+  TRAIN_DIR: './dataset/UFO-120/train_val_paired'  # Folder with input/ and target/ subfolders
+  VAL_DIR: './dataset/UFO-120/train_val_paired'    # Same folder (val split inside DataLoader)
+  SAVE_DIR: './checkpoints'
+
+# what is my next step for paper based closure output of metrices
+
+
+# why learining rate is decrease according number of epoech increase means why every epoch according learining rate decrease and 
+# if learining rate is same thwn what issue or prons and 
+# if learining rate is decreasing accoring increasing number of epoch then what issue or prons
+
+
