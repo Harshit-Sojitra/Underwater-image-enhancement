@@ -1,4 +1,3 @@
 # Underwater image enhancement via cross-wise transformer network focusing on pre-post differences
 # checkpoints
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
+https://drive.google.com/drive/folders/1WMQxGKzSkjTsvd1kqCJlUJvSOEB-b1rP?usp=drive_link
